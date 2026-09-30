@@ -18,4 +18,4 @@ def variabili(request):
     return render(request,"variabili.html",context)
 
 def index(request):
-    return render(request,"index")
+    return render(request,"index.html")
