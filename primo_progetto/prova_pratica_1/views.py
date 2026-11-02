@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from random import randint, random
+import datetime
 
 # Create your views here.
 def somma(request):
@@ -41,5 +42,6 @@ def media(request):
     return render(request, "media.html", dic)
 
 def voti(request):
-    dic = { 'Studente': [''], 'Voto': [ 'Do not give up!'] } 
+    
+    dic = { 'studente1': [1, datetime.date(2019,7,16), 'Voto:'], 'studente2': [2, datetime.date(2019,7,16), 'voto'] } 
     return render(request, "voti.html", dic)
