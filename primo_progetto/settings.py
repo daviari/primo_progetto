@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "prima_app",
     "seconda_app",
+    "prova_pratica_1",
     "news",
 ]
 
@@ -61,6 +62,8 @@ TEMPLATES = [
         'DIRS': [os.path.join(BASE_DIR, 'prima_app/templates/prima_app'),
                 os.path.join(BASE_DIR, 'primo_progetto/templates'),
                 os.path.join(BASE_DIR, 'seconda_app/template/seconda_app'),
+                os.path.join(BASE_DIR, 'prova_pratica_1/template/prova_pratica_1'),
+                os.path.join(BASE_DIR, 'news/template'),
                 os.path.join(BASE_DIR, 'templates')],  
         'APP_DIRS': True,
         'OPTIONS': {
