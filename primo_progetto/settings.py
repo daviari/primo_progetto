@@ -63,7 +63,7 @@ TEMPLATES = [
                 os.path.join(BASE_DIR, 'primo_progetto/templates'),
                 os.path.join(BASE_DIR, 'seconda_app/template/seconda_app'),
                 os.path.join(BASE_DIR, 'prova_pratica_1/template/prova_pratica_1'),
-                os.path.join(BASE_DIR, 'news/template'),
+                os.path.join(BASE_DIR, 'news/template/news'),
                 os.path.join(BASE_DIR, 'templates')],  
         'APP_DIRS': True,
         'OPTIONS': {
