@@ -8,9 +8,9 @@ def home(request):
         'articoli': articoli,
         'giornalisti': giornalisti,
     }
-    return render(request, 'news/homepage.html', context)
+    return render(request, 'homepage.html', context)
 
 def articoloDetailView(request, pk):
     articolo = get_object_or_404(Articolo, pk=pk)
     context = {'articolo': articolo}
-    return render(request, 'news/articoloDetailView.html', context)
+    return render(request, 'articoloDetailView.html', context)
