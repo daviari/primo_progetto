@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{%block title%}
+        {{block.super}}
+{%endblock title%}
+{%block content%}
+<b>var1 = {{ var1 }}</b> <br/>
+<b>var2 = {{ var2 }}</b> <br/>
+<b>somma = {{ somma }}</b> <br/>
+
+{% if var1 > var2 %}
+    <p><i><h1 style = "color:green"></style> var1 è più grande di var2 </h1></i></p>
+{%else%}
+    <p><i><h1 style = "color:red"></style> var1 è più piccolo di var2 </h1></i></p>
+{% endif %}
+
+{% int somma = var1 + var2 %}
+{%endif%}
+{%endblock content%}
