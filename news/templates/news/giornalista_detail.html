@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    {{ giornalista.nome }} {{ giornalista.cognome }}
+{% endblock title %}
+
+
+{% block content %}
+    <h1>Nome: <span style="font-weight: 300;">{{ giornalista.nome }}</span></h1>
+    <h3>Cognome: <span style="font-weight: 300;">{{ giornalista.cognome }}</span></h3>
+    <h3>Anno di nascita: <span style="font-weight: 300;">{{ giornalista.anno_di_nascita }}</span></h3>
+{% endblock content %}
