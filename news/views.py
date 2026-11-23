@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Articolo, Giornalista
+from django.db.models import Q
 import datetime
 
 def home(request):
@@ -54,53 +55,44 @@ def queryBase(request):
     articoli_con_not = Articolo.objects.filter(~Q(giornalista__anno_di_nascita__lt=data))
     articoli_con_not = Articolo.objects.exclude(giornalista__anno_di_nascita__lt=data)
     context = {
-        'articoli_cognome': articoli_cognome
-,
-        'numero_totale_articoli': numero_totale_articoli
-,
-        'giornalista_1': giornalista_1
-,
-        'numero_articoli_giornalista_1': numero_articoli_giornalista_1
-,
-        'articoli_ordinati': articoli_ordinati
-,
-        'articoli_senza_visualizzazioni': articoli_senza_visualizzazioni
-,
-        'articolo_piu_visualizzato': articolo_piu_visualizzato
-,
-        'giornalisti_data': giornalisti_data
-,
-        'articoli_del_giorno': articoli_del_giorno
-,
-        'articoli_periodo': articoli_periodo
-,
-        'giornalisti_nati': giornalisti_nati
-,
-        'articoli_giornalisti': articoli_giornalisti
-,
-        'giornalista_giovane': giornalista_giovane
-,
-        'giornalista_anziano': giornalista_anziano
-,
-        'ultimi': ultimi
-,
-        'articoli_minime_visualizzazioni': articoli_minime_visualizzazioni
-,
-        'articoli_parola': articoli_parola
-,
-        'articoli_mese_anno': articoli_mese_anno
-,
-        'giornalisti_con_articoli_popolari': giornalisti_con_articoli_popolari
-,
-        'data': data
-,
-        'visualizzazioni': visualizzazioni
-,
-        'articoli_con_and': articoli_con_and
-,
-        'articoli_con_or': articoli_con_or
-,
-        'articoli_con_not': articoli_con_not
-,
+        'articoli_cognome': articoli_cognome,
+        'numero_totale_articoli': numero_totale_articoli,
+        'giornalista_1': giornalista_1,
+        'numero_articoli_giornalista_1': numero_articoli_giornalista_1,
+        'articoli_ordinati': articoli_ordinati,
+        'articoli_senza_visualizzazioni': articoli_senza_visualizzazioni,
+        'articolo_piu_visualizzato': articolo_piu_visualizzato,
+        'giornalisti_data': giornalisti_data,
+        'articoli_del_giorno': articoli_del_giorno,
+        'articoli_periodo': articoli_periodo,
+        'giornalisti_nati': giornalisti_nati,
+        'articoli_giornalisti': articoli_giornalisti,
+        'giornalista_giovane': giornalista_giovane,
+        'giornalista_anziano': giornalista_anziano,
+        'ultimi': ultimi,
+        'articoli_minime_visualizzazioni': articoli_minime_visualizzazioni,
+        'articoli_parola': articoli_parola,
+        'articoli_mese_anno': articoli_mese_anno,
+        'giornalisti_con_articoli_popolari': giornalisti_con_articoli_popolari,
+        'data': data,
+        'visualizzazioni': visualizzazioni,
+        'articoli_con_and': articoli_con_and,
+        'articoli_con_or': articoli_con_or,
+        'articoli_con_not': articoli_con_not,
     }
-    return render(request, "query.html", context)
+    return render(request, "news/query.html", context)
+
+def giornalistaDetailView(request, pk):
+        giornalista = get_object_or_404(Giornalista, pk=pk)
+        context = {'giornalista': giornalista}
+        return render(request, 'news/giornalista_detail.html', context)
+
+def lista_giornalisti(request, pk= None):
+    if pk==None:
+        giornalista = Giornalista.objects.all()
+    else: 
+        giornalista = Giornalista.objects.filter(giornalista_id=pk)
+    context = {'giornalisti': giornalista}
+    
+    return render(request, 'news/lista_giornalisti.html', context)
+     
